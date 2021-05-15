@@ -1,0 +1,27 @@
+{
+  "name": "@bearologics/devicecheck",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bearologics/DeviceCheck.git"
+  },
+  "keywords": [
+    "apple",
+    "ios",
+    "devicecheck"
+  ],
+  "author": "Bearologics UG (haftungsbeschränkt)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bearologics/DeviceCheck/issues"
+  },
+  "homepage": "https://github.com/Bearologics/DeviceCheck#readme",
+  "dependencies": {
+    "@sagi.io/workers-jwt": "^0.0.20"
+  }
+}
