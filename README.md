@@ -4,7 +4,7 @@ You may use this tiny module to validate Apple DeviceCheck tokens with the Apple
 
 ## Usage
 
-````
+````javascript
 const deviceCheck = require("@bearologics/devicecheck");
 
 const deviceCheckPassed = await deviceCheck(request, {
@@ -18,8 +18,8 @@ if (!deviceCheckPassed) {
 }
 …
 ```
-````
 
 ## License
 
 [See LICENSE.md](LICENSE.md)
+````
