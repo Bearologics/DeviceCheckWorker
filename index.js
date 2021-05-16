@@ -18,9 +18,9 @@ module.exports = async function (request, credentials) {
     },
   });
 
-  const isSandbox = headers.get("X-Apple-Device-Sandbox") == "true";
+  const isDevelopment = headers.get("X-Apple-Device-Development") == "true";
   const deviceToken = headers.get("X-Apple-Device-Token");
-  const environment = isSandbox ? "api.development" : "api";
+  const environment = isDevelopment ? "api.development" : "api";
 
   const response = await fetch(
     `https://${environment}.devicecheck.apple.com/v1/validate_device_token`,

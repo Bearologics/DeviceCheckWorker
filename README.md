@@ -23,7 +23,9 @@ if (!deviceCheckPassed) {
 
 Generating a DeviceCheck token, as of writing this, only works on a real iOS / iPadOS device. You should import and use the `DeviceCheck.framework` for this.
 
-What we'll need to acquired is the DeviceCheck token, and send it to our worker using a custom header, which is called `X-Apple-Device-Token`, when you're using a developmemt certificate you also want to set another header `X-Apple-Device-Sandbox: true` for the DeviceCheck module to target Apple's Sandbox API rather than the production one.
+We'll now generate a device token and send it to our Worker using a custom header, which is called `X-Apple-Device-Token`, this header is parsed by the Worker and sent to the Apple Server for verification.
+
+When using a development certificate, you also want to set the header `X-Apple-Device-Development: true` for the Worker to target Apple's Development Server rather than the production one.
 
 ```swift
 import DeviceCheck
@@ -43,8 +45,8 @@ DCDevice.current.generateToken { data, error in
   request.setValue(tokenString, forHTTPHeaderField: "X-Apple-Device-Token")
 
   // optional when signing using a development certificate
-  // this will use the Sandbox DeviceCheck API
-  request.setValue("true", forHTTPHeaderField: "X-Apple-Device-Sandbox")
+  // this will use the development DeviceCheck server
+  request.setValue("true", forHTTPHeaderField: "X-Apple-Device-Development")
 
   let config = URLSessionConfiguration.default
   let session = URLSession(configuration: config)
